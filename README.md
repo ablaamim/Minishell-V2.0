@@ -79,7 +79,7 @@ This is a manual to read RELIGIOUSLY before starting [man bash](https://pubs.ope
 .
 .
 ├── includes/
-├── srcs/
+├── sources/
 ├── Makefile
 .
 .

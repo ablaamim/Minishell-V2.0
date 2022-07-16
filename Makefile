@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/16 10:50:16 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/16 12:19:02 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 SRC = ./sources/main.c \
 	  ./sources/debug.c \
+	  ./sources/variadic_error_printer.c \
+	  ./sources/variadic_format_specifier.c \
+	  ./sources/libft_utils_00.c \
+	  ./sources/variadic_type_converter.c \
 
 OBJ = $(SRC:.c=.o)
 

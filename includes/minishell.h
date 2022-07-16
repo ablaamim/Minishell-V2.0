@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 11:01:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/16 12:32:22 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ void	print_env(char **env);
  * Error handling defines/Structs/functions :
 */
 
+/*
+ * Libft utils :
+*/
+
+char	*ft_strdup(char *str);
+int		ft_strlen(char *str);
+void	*ft_memset(void *memory, int c, size_t n);
+void	ft_bzero(void *memory, size_t size);
+int		ft_putstr_fd(int fd, char *str);
+
 #define BUFFERING_SIZE 4096
 
 typedef struct s_buffering
@@ -53,5 +63,7 @@ typedef struct s_converter
 
 int		variadic_error_printer(int fd, const char *fmt, ...);
 char	*variadic_format_specifier(const char *str, va_list ap);
+void	converter_percentage(t_buffering *format, va_list ap);
+void	converter_character(t_buffering *format, va_list ap);
 
 #endif

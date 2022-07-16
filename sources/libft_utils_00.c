@@ -6,13 +6,13 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:56:13 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 12:32:38 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/16 14:09:23 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	len;
 
@@ -39,6 +39,7 @@ char	*ft_strdup(char *str)
 		return (0x0);
 	while (++i < len)
 		new[i] = str[i];
+	new[i] = '\0';
 	return (new);
 }
 

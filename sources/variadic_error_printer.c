@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:42:09 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 12:36:55 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/16 14:00:45 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ int	variadic_error_printer(int fd, const char *fmt, ...)
 	free(str);
 	return (len);
 }
-
+/*
 int	main(void)
 {
-	variadic_error_printer(2, "Perc : |%%|\n");
-	variadic_error_printer(2, "CHAR 0 : |%c|\n", '@');
-	variadic_error_printer(1, "CHAR 1 : |%c|\n", '#');
+	//variadic_error_printer(2, "Perc : %%\n");
+	//variadic_error_printer(2, "CHAR 0 : %c\n", '@');
+	//variadic_error_printer(1, "CHAR 1 : %c\n", '#');
+	variadic_error_printer(1,"%s", "Print me!\n");
+	//variadic_error_printer(2,"%s\n", NULL);
+	//variadic_error_printer(1, "%s", "ERROR\n");
+	//while (1);
 	return (EXIT_SUCCESS);
 }
-
+*/

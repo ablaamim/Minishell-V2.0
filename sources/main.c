@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:17:20 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 10:41:36 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/16 14:28:26 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,17 @@
 int	main(int argc, char **argv, char **env)
 {
 	(void)	argv;
+	(void)	env;
 	if (argc == 1)
 	{
 		/*
 		 * Print content of env cache.
 		*/
-		print_env(env);
+		//print_env(env);
+		/*
+		 * Core function :
+		*/
+		minishell();
 	}
 	else
 	{
@@ -44,7 +49,7 @@ int	main(int argc, char **argv, char **env)
 		 * Create a variadic error print function to print errors on
 		 * a given fd with an arbitary number of arguments.
 		*/
-		printf("Error handing should be managed properly\n");
+		variadic_error_printer(2, "Error : Invalid argument\n");
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

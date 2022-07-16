@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:50:39 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 12:27:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:55:32 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		variadic_type_recognizer(char type, va_list ap, t_buffering *format)
 	t_converter const convert[] = {
 	{.type = '%', .function = &converter_percentage},
 	{.type = 'c', .function = &converter_character},
+	{.type = 's', .function = &converter_string},
 	{.type = '\0'}
 	};
 	while (convert[iterator].type != type && convert[iterator].type != 0x0)

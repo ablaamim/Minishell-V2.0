@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/16 12:19:02 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/16 14:29:40 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,15 @@ SRC = ./sources/main.c \
 	  ./sources/variadic_format_specifier.c \
 	  ./sources/libft_utils_00.c \
 	  ./sources/variadic_type_converter.c \
+	  ./sources/libft_utils_01.c \
+	  ./sources/minishell.c \
 
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(SRC)
-		$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+		$(CC) $(CFLAGS) $(SRC) $(READLINE_FLAGS) -o $(NAME)
 
 clean:
 		rm -rf $(OBJ)

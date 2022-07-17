@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/16 14:29:40 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/17 15:09:56 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SRC = ./sources/main.c \
 	  ./sources/variadic_type_converter.c \
 	  ./sources/libft_utils_01.c \
 	  ./sources/minishell.c \
+	  ./sources/initialize_bash_env.c \
+	  ./sources/env_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

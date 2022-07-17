@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 14:19:17 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 15:08:57 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/07/17 14:12:07 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/07/17 15:12:37 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char	*read_input(void)
-{
-	char *input;
-
-	input = readline("Minishell-V2.0$> ");
-	//printf("%s\n", input);
-	add_history(input);
-	return (input);
-}
-
 /*
- * Read command line input via readline() system function
- * that will do in an infinite loop.
- *
- * read_input() : Reads input via readline and saves history using
- * add_history() system function.
+ * Return address of env in updated state.
 */
 
-void	minishell(void)
+t_env	*retrieve_bash_env(void)
 {
-	char	*input;
+	static t_env	bash_env = 0x0;
 
-	while (1337)
-	{
-		input = read_input();
-		free(input);
-	}
+	return (&bash_env);
+}
+
+
+/*
+ * Calculate bash env length and returns it.
+*/
+
+int	env_length(t_env env)
+{
+	int	len;
+
+	len = 0x0;
+	while (env[len])
+		len++;
+	return (len);
 }

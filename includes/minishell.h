@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 14:28:51 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/17 15:19:23 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,16 @@ char	*variadic_format_specifier(const char *str, va_list ap);
 void	converter_percentage(t_buffering *format, va_list ap);
 void	converter_character(t_buffering *format, va_list ap);
 void	converter_string(t_buffering *format, va_list ap);
+
+/*
+ * Initialize bash envronment :
+*/
+
+typedef char **t_env;
+
+void	initialize_bash_env(t_env env);
+int		env_length(t_env env);
+t_env	*retrieve_bash_env(void);
+void	initialize_env_variables(void);
 
 #endif

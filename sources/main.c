@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:17:20 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 14:28:26 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/17 15:09:30 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,16 @@ int	main(int argc, char **argv, char **env)
 		*/
 		//print_env(env);
 		/*
-		 * Core function :
+		 * Core functions :
+		*/
+		/*
+		 * Init bash environment :
+		*/
+		printf("===================== ENV DATA =========================\n\n");
+		initialize_bash_env(env);
+		printf("========================================================\n\n");
+		/*
+		 * Core function that will read commnd line input via readline().
 		*/
 		minishell();
 	}

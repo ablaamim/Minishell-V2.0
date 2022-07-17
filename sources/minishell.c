@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:19:17 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 15:08:57 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/17 16:01:11 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	minishell(void)
 	while (1337)
 	{
 		input = read_input();
+		executor(input);
 		free(input);
 	}
 }

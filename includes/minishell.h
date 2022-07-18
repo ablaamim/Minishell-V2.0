@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 16:05:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/18 10:57:24 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdbool.h>
 
 /*
  * Core functions :
@@ -87,18 +88,84 @@ void	initialize_env_variables(void);
  * LEXER CLASS ABSTRACTION :
 */
 
+/*
+ * Must contain all possible char types.
+*/
+
 enum e_char_type
 {
 	ANY_CHAR,
 	NULL_CHAR,
+	SPACE_CHAR,
+	SQUOTES_CHAR,
+	DQUOTES_CHAR,
 	NB_CHAR_TYPES
 };
+
+/*
+ * Types of tokens handled by program, this will simplify parsing phase.
+*/
 
 enum e_token_type
 {
 	WORD_TOKEN,
 };
 
+/*
+ * Word token rules, its either accepted or not_accepted, this will be handful
+ * in data filtring level.
+*/
+
+enum e_char_rules
+{
+	NOT_ACCEPTED,
+	ACCEPTED
+};
+
+typedef struct s_token
+{
+	char				*data;
+	enum e_token_type	type;;
+	struct s_token		*next;
+}	t_token;
+
+enum e_node_type
+{
+	SIMPLE_CMD,
+};
+
+typedef struct s_simple_cmd
+{
+	char	**argv;
+	int		fd_input;
+	int		fd_output;
+	bool	input_has_quotes;
+}	t_simple_cmd;
+
+/*
+ * ABSTRAC T SYNTAX TREE :
+*/
+
+typedef struct s_child
+{
+	struct s_node	*left;
+	struct s_node	*right;
+}	t_child;
+
+typedef struct s_node_content
+{
+	struct s_simple_cmd	simple_cmd;
+	struct s_child		child;
+}	t_node_content;
+
+typedef struct s_node
+{
+	enum e_node_type	type;
+	t_node_content		content;
+}	t_node;
+
 void	executor(char *input);
+t_node	*ft_lexer_parser(char *input);
+bool	linked_list_constructor(char *input, t_token **token_list);
 
 #endif

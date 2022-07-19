@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/18 10:57:24 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/19 11:59:46 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@
 # include <readline/history.h>
 # include <stdbool.h>
 
-/*
- * Core functions :
-*/
-
-/*
- *int		main(int argc, char **argv, char **env);
-*/
 
 /*
  * Debugers :
 */
 
 void	print_env(char **env);
+
+/*
+ * Core functions :
+*/
+
 void	minishell(void);
 char	*read_input(void);
 
@@ -48,6 +46,9 @@ void	*ft_memset(void *memory, int c, size_t n);
 void	ft_bzero(void *memory, size_t size);
 int		ft_putstr_fd(int fd, char *str);
 char	*ft_strcpy(char *dest, char *src);
+bool	ft_iswhite_space(int c);
+void	*ft_memcpy(void *dest, void *src, size_t n);
+char	*ft_strndup(char *str, int n);
 
 /*
  * Error handling utils :
@@ -125,7 +126,7 @@ enum e_char_rules
 typedef struct s_token
 {
 	char				*data;
-	enum e_token_type	type;;
+	enum e_token_type	type;
 	struct s_token		*next;
 }	t_token;
 
@@ -164,8 +165,15 @@ typedef struct s_node
 	t_node_content		content;
 }	t_node;
 
-void	executor(char *input);
-t_node	*ft_lexer_parser(char *input);
-bool	linked_list_constructor(char *input, t_token **token_list);
+void				executor(char *input);
+t_node				*ft_lexer_parser(char *input);
+bool				linked_list_constructor(char *input, t_token **token_list);
+t_token				*retrieve_next_token(char *input, int *i);
+enum e_char_type	define_char_type(char c);
+enum e_char_rules	verifier(char c, bool *squotes_found, bool *dquotes_found);
+t_token				*tokenize_word(char *input, int *i);
+enum e_char_rules	apply_rules(enum e_char_type char_type);
+t_token				*token_generator(char *data, enum e_token_type type);
+void				append_token(t_token *new_token, t_token **token_list);
 
 #endif

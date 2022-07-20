@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:58:46 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 09:22:52 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:27:56 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ void	append_token(t_token *new_token, t_token **token_list)
 	}
 }
 
+/*
+ * Dispatch table / array of function pointers, it will call the appropriate
+ * tokenizer depending on the type of character encountred in the input string.
+ *
+ * FOR FURTHER INFOS : check ../includes/minishell.h
+*/
+
 t_token	*retrieve_next_token(char *input, int *i)
 {
 	t_token	*(*tokenizer[NB_CHAR_TYPES])(char *, int *);
@@ -40,12 +47,21 @@ t_token	*retrieve_next_token(char *input, int *i)
 	tokenizer[SPACE_CHAR] = &tokenize_word;
 	tokenizer[SQUOTES_CHAR] = &tokenize_word;
 	tokenizer[DQUOTES_CHAR] = &tokenize_word;
-	return(tokenizer[define_char_type(input[*i])](input, i));
+	tokenizer[AND_CHAR] = &tokenize_and;
+	/*
+	 * TO DO :
+	 *
+	 * Create appropriate function to tokenize analyzed types.
+	*/
+	//tokenizer[PIPE_CHAR] = &tokenize_pipe;
+	//tokenizer[OP_PARENTH_TOKEN] = &tokenize_parenthesis;
+	//tokenizer[CLOSE_PARENTH_TOKEN] = &tokenize_parenthesis;
+	return (tokenizer[define_char_type(input[*i])](input, i));
 }
 
 /*
  * This particular function will build a linked list of tokens based on
- * read buffer from readline(), respecting lexer grammar.
+ * read buffer from readline(), respecting lexer grammar [SYNTAXIC ANALYSIS].
  *
  * ft_iswhite_space() : Will escape all white spaces incountred in scanned
  * input string.
@@ -61,11 +77,6 @@ bool	linked_list_constructor(char *input, t_token **token_list)
 	int		iterator;
 
 	iterator = 0x0;
-	/*
-	 * TO DO :
-	 *
-	 * SCAN INPUT [LEXER] IN ORDER TO PARSE IT.
-	*/
 	while (ft_iswhite_space(input[iterator]))
 		++iterator;
 	while (input[iterator])

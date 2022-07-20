@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 12:13:06 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 14:06:36 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:28:12 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	converter_percentage(t_buffering *format, va_list ap)
 {
-	(void)	ap;
+	(void) ap;
 	format->buffer[format->i++] = '%';
 }
 

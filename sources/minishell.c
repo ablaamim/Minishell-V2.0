@@ -6,15 +6,19 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:19:17 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 16:01:11 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:25:37 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
+/*
+ * Function that will read input and save history.
+*/
+
 char	*read_input(void)
 {
-	char *input;
+	char	*input;
 
 	input = readline("Minishell-V2.0$> ");
 	//printf("%s\n", input);
@@ -23,11 +27,9 @@ char	*read_input(void)
 }
 
 /*
- * Read command line input via readline() system function
- * that will do in an infinite loop.
- *
+ * Read command line input via readline() system function in an infinite loop.
  * read_input() : Reads input via readline and saves history using
- * add_history() system function.
+ * add_history() : system function that will save input history.
 */
 
 void	minishell(void)

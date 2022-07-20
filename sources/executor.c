@@ -6,14 +6,14 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 16:01:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 09:24:10 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 10:56:53 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
 /*
- * initialize my abstract syntax tree, lex and parse content of iput string, 
+ * initialize my abstract syntax tree, lex and parse content of input string,
  * using lexer and recursive descent parser.
 */
 

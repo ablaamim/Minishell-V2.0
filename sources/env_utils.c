@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 14:12:07 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 15:12:37 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 10:56:25 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_env	*retrieve_bash_env(void)
 
 	return (&bash_env);
 }
-
 
 /*
  * Calculate bash env length and returns it.

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 09:31:09 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 10:52:43 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,38 @@
 # include <readline/history.h>
 # include <stdbool.h>
 
-
 /*
  * Debugers :
 */
 
-void	print_env(char **env);
+void				print_env(char **env);
 
 /*
  * Core functions :
 */
 
-void	minishell(void);
-char	*read_input(void);
+void				minishell(void);
+char				*read_input(void);
 
 /*
  * Libft_utils :
 */
 
-char	*ft_strdup(char *str);
-int		ft_strlen(char *str);
-void	*ft_memset(void *memory, int c, size_t n);
-void	ft_bzero(void *memory, size_t size);
-int		ft_putstr_fd(int fd, char *str);
-char	*ft_strcpy(char *dest, char *src);
-bool	ft_iswhite_space(int c);
-void	*ft_memcpy(void *dest, void *src, size_t n);
-char	*ft_strndup(char *str, int n);
+char				*ft_strdup(char *str);
+int					ft_strlen(char *str);
+void				*ft_memset(void *memory, int c, size_t n);
+void				ft_bzero(void *memory, size_t size);
+int					ft_putstr_fd(int fd, char *str);
+char				*ft_strcpy(char *dest, char *src);
+bool				ft_iswhite_space(int c);
+void				*ft_memcpy(void *dest, void *src, size_t n);
+char				*ft_strndup(char *str, int n);
 
 /*
  * Error handling utils :
 */
 
-#define BUFFERING_SIZE 4096
+# define BUFFERING_SIZE 4096
 
 typedef struct s_buffering
 {
@@ -68,22 +67,22 @@ typedef struct s_converter
 	void	(*function)(t_buffering *, va_list);
 }	t_converter;
 
-int		variadic_error_printer(int fd, const char *fmt, ...);
-char	*variadic_format_specifier(const char *str, va_list ap);
-void	converter_percentage(t_buffering *format, va_list ap);
-void	converter_character(t_buffering *format, va_list ap);
-void	converter_string(t_buffering *format, va_list ap);
+int					variadic_error_printer(int fd, const char *fmt, ...);
+char				*variadic_format_specifier(const char *str, va_list ap);
+void				converter_percentage(t_buffering *format, va_list ap);
+void				converter_character(t_buffering *format, va_list ap);
+void				converter_string(t_buffering *format, va_list ap);
 
 /*
  * Initialize bash envronment :
 */
 
-typedef char **t_env;
+typedef char	**t_env;
 
-void	initialize_bash_env(t_env env);
-int		env_length(t_env env);
-t_env	*retrieve_bash_env(void);
-void	initialize_env_variables(void);
+void				initialize_bash_env(t_env env);
+int					env_length(t_env env);
+t_env				*retrieve_bash_env(void);
+void				initialize_env_variables(void);
 
 /*
  * LEXER CLASS ABSTRACTION :
@@ -100,6 +99,10 @@ enum e_char_type
 	SPACE_CHAR,
 	SQUOTES_CHAR,
 	DQUOTES_CHAR,
+	AND_CHAR,
+	PIPE_CHAR,
+	OP_PARENTH_CHAR,
+	CLOSE_PARENTH_CHAR,
 	NB_CHAR_TYPES
 };
 
@@ -110,6 +113,11 @@ enum e_char_type
 enum e_token_type
 {
 	WORD_TOKEN,
+	PIPE_TOKEN,
+	OR_TOKEN,
+	AND_TOKEN,
+	OP_PARENTH_TOKEN,
+	CLOSE_PARENTH_TOKEN
 };
 
 /*
@@ -133,6 +141,9 @@ typedef struct s_token
 enum e_node_type
 {
 	SIMPLE_CMD,
+	PIPE_NODE,
+	OR_NODE,
+	AND_NODE
 };
 
 typedef struct s_simple_cmd
@@ -180,6 +191,6 @@ void				append_token(t_token *new_token, t_token **token_list);
  * Linked list debugger :
 */
 
-void	print_linked_list_tokens(t_token *token);
+void				print_linked_list_tokens(t_token *token);
 
 #endif

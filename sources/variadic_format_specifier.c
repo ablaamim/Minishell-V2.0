@@ -6,23 +6,23 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:50:39 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/16 13:55:32 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:27:24 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int		variadic_type_recognizer(char type, va_list ap, t_buffering *format)
+int	variadic_type_recognizer(char type, va_list ap, t_buffering *format)
 {
-	int	iterator;
-
-	iterator = 0x0;
-	t_converter const convert[] = {
+	int					iterator;
+	t_converter const	convert[] = {
 	{.type = '%', .function = &converter_percentage},
 	{.type = 'c', .function = &converter_character},
 	{.type = 's', .function = &converter_string},
 	{.type = '\0'}
 	};
+
+	iterator = 0x0;
 	while (convert[iterator].type != type && convert[iterator].type != 0x0)
 		iterator++;
 	if (convert[iterator].type == '\0')

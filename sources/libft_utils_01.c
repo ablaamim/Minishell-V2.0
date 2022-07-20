@@ -6,13 +6,13 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:38:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/19 11:44:38 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:25:00 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int		ft_strnlen(char *str, int maxlen)
+int	ft_strnlen(char *str, int maxlen)
 {
 	int	size;
 

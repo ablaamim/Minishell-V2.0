@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/19 11:59:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 09:31:09 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,5 +175,11 @@ t_token				*tokenize_word(char *input, int *i);
 enum e_char_rules	apply_rules(enum e_char_type char_type);
 t_token				*token_generator(char *data, enum e_token_type type);
 void				append_token(t_token *new_token, t_token **token_list);
+
+/*
+ * Linked list debugger :
+*/
+
+void	print_linked_list_tokens(t_token *token);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:42:20 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/18 11:20:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 09:31:30 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_node	*ft_lexer_parser(char *input)
 		 *
 		 * CREATE A DEBUGGER.
 		*/
-		printf("Linked list built, i have to print it next !\n");
+		//printf("Linked list built, i have to print it next !\n");
+		print_linked_list_tokens(token_list);
 	}
 	return (ast);
 }

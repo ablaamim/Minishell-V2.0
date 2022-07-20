@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 16:01:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/18 10:49:16 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 09:24:10 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	executor(char *input)
 	{
 		ast = ft_lexer_parser(input);
 		if (ast == 0x0)
-			variadic_error_printer(2, "SHOULD BE HANDLED LATER\n");
+			variadic_error_printer(2, "AST IS EMPTY\n");
 	}
 }

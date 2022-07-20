@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 14:01:42 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/17 15:36:31 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/20 09:39:14 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	initialize_bash_env(t_env env)
 		tmp[iterator] = 0x0;
 		*bash_env = tmp;;
 	}
-	printf("==================== ENV CACHE =============================\n\n");
+	printf("==================== ENV CACHE =========================\n\n");
 	//initialize_env_variables();
 	print_env(env);
 }

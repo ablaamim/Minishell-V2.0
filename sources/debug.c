@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:24:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:18:44 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 22:20:39 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	print_linked_list_tokens(t_token *token)
 	{
 		if (current_token->type == WORD_TOKEN)
 			printf("[ WORD_TOKEN");
+		else if (current_token->type == DLESSER_TOKEN)
+			printf("[ DLESSER_TOKEN");
 		else if (current_token->type == PIPE_TOKEN)
 			printf("[ PIPE_TOKEN");
 		else if (current_token->type == AND_TOKEN)
@@ -56,7 +58,15 @@ void	print_linked_list_tokens(t_token *token)
 			printf("[ OP_PARENTH_TOKEN");
 		else if (current_token->type == CLOSE_PARENTH_TOKEN)
 			printf("[ CLOSE_PARENTH_TOKEN");
-		printf(" | Data = ##%s## ] ------>", current_token->data);
+		else if (current_token->type == LESSER_TOKEN)
+			printf("LESSER_TOKEN");
+		else if (current_token->type == DLESSER_TOKEN)
+			printf("DLESSER_TOKEN");
+		else if (current_token->type == GREATER_TOKEN)
+			printf("GREATER_TOKEN");
+		else if (current_token->type == DGREATER_TOKEN)
+			printf("DGREATER_TOKEN");
+		printf(" | Data = ##%s## ]----->", current_token->data);
 		current_token = current_token->next;
 	}
 	if (current_token == 0x0)

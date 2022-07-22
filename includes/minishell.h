@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 19:31:36 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 21:55:07 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ enum e_char_type
 	SPACE_CHAR,
 	SQUOTES_CHAR,
 	DQUOTES_CHAR,
+	LESS_CHAR,
+	GREAT_CHAR,
 	AND_CHAR,
 	PIPE_CHAR,
 	OP_PARENTH_CHAR,
@@ -117,6 +119,10 @@ enum e_token_type
 	PIPE_TOKEN,
 	OR_TOKEN,
 	AND_TOKEN,
+	LESSER_TOKEN,
+	DLESSER_TOKEN,
+	GREATER_TOKEN,
+	DGREATER_TOKEN,
 	OP_PARENTH_TOKEN,
 	CLOSE_PARENTH_TOKEN
 };
@@ -194,6 +200,9 @@ void				append_token(t_token *new_token, t_token **token_list);
 t_token				*tokenize_and(char *input, int *i);
 t_token				*tokenize_pipe(char *input, int *i);
 t_token				*tokenize_parenthesis(char *input, int *i);
+t_token				*tokenize_greater(char *input, int *i);
+t_token				*tokenize_lesser(char *input, int *i);
+
 /*
  * Linked list debugger :
 */

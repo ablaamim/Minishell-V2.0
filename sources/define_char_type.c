@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:50:05 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 19:06:31 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 22:17:41 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ enum e_char_rules	apply_rules(enum e_char_type char_type)
 	[SPACE_CHAR] = NOT_ACCEPTED,
 	[SQUOTES_CHAR] = ACCEPTED,
 	[DQUOTES_CHAR] = ACCEPTED,
+	[LESS_CHAR] = NOT_ACCEPTED,
+	[GREAT_CHAR] = NOT_ACCEPTED,
 	[AND_CHAR] = NOT_ACCEPTED,
 	[PIPE_CHAR] = NOT_ACCEPTED,
 	[OP_PARENTH_CHAR] = NOT_ACCEPTED,
@@ -127,6 +129,8 @@ enum e_char_type	define_char_type(char c)
 	['\"'] = DQUOTES_CHAR,
 	['('] = OP_PARENTH_CHAR,
 	[')'] = CLOSE_PARENTH_CHAR,
+	['<'] = LESS_CHAR,
+	['>'] = GREAT_CHAR,
 	['|'] = PIPE_CHAR
 	};
 

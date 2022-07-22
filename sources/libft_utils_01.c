@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:38:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 11:25:00 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 21:16:37 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strnlen(char *str, int maxlen)
 	size = 0x0;
 	if (str == 0x0)
 		return (0x0);
-	while (str[size] && maxlen--)
+	while (*(str + size) && maxlen--)
 		size++;
 	return (size);
 }
@@ -35,18 +35,16 @@ char	*ft_strndup(char *str, int n)
 	new = malloc(sizeof(*str) * (max_len + 0x1));
 	if (new == 0x0)
 		return (0x0);
-	new[max_len] = '\0';
-	return (ft_memcpy(str, str, max_len));
+	*(new + max_len) = '\0';
+	return (ft_memcpy(new, str, max_len));
 }
 
 void	*ft_memcpy(void *dest, void *src, size_t n)
 {
-	unsigned int	*tmp;
+	unsigned char	*tmp;
 
 	if (dest == 0x0 || src == 0x0)
 		return (0x0);
-	if (dest == src)
-		return (dest);
 	tmp = dest;
 	while (n--)
 		*tmp++ = *(unsigned char *) src++;

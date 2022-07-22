@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/19 12:04:00 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/22 19:01:02 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC = ./sources/main.c \
 	  ./sources/ft_lexer_parser.c \
 	  ./sources/linked_list_constructor.c \
 	  ./sources/define_char_type.c \
+	  ./sources/tokenize_word_and_separators.c
 
 OBJ = $(SRC:.c=.o)
 

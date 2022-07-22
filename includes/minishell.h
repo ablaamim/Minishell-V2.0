@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 10:52:43 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:31:36 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_converter
 	char	type;
 	void	(*function)(t_buffering *, va_list);
 }	t_converter;
+
 
 int					variadic_error_printer(int fd, const char *fmt, ...);
 char				*variadic_format_specifier(const char *str, va_list ap);
@@ -155,7 +156,7 @@ typedef struct s_simple_cmd
 }	t_simple_cmd;
 
 /*
- * ABSTRAC T SYNTAX TREE :
+ * ABSTRACT SYNTAX TREE :
 */
 
 typedef struct s_child
@@ -176,6 +177,10 @@ typedef struct s_node
 	t_node_content		content;
 }	t_node;
 
+/*
+ * LEXER / PARSER CLASS :
+*/
+
 void				executor(char *input);
 t_node				*ft_lexer_parser(char *input);
 bool				linked_list_constructor(char *input, t_token **token_list);
@@ -186,7 +191,9 @@ t_token				*tokenize_word(char *input, int *i);
 enum e_char_rules	apply_rules(enum e_char_type char_type);
 t_token				*token_generator(char *data, enum e_token_type type);
 void				append_token(t_token *new_token, t_token **token_list);
-
+t_token				*tokenize_and(char *input, int *i);
+t_token				*tokenize_pipe(char *input, int *i);
+t_token				*tokenize_parenthesis(char *input, int *i);
 /*
  * Linked list debugger :
 */

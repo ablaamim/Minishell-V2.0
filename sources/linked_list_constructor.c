@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:58:46 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 11:27:56 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:16:14 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ t_token	*retrieve_next_token(char *input, int *i)
 	tokenizer[SQUOTES_CHAR] = &tokenize_word;
 	tokenizer[DQUOTES_CHAR] = &tokenize_word;
 	tokenizer[AND_CHAR] = &tokenize_and;
+	tokenizer[PIPE_CHAR] = &tokenize_pipe;
+	tokenizer[OP_PARENTH_CHAR] = &tokenize_parenthesis;
+	tokenizer[CLOSE_PARENTH_CHAR] = &tokenize_parenthesis;
 	/*
 	 * TO DO :
 	 *

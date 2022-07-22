@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:50:05 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 11:24:25 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:06:31 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ enum e_char_rules	verifier(char c, bool *squotes_found, bool *dquotes_found)
  * character encountred is checked with the verifier() function, if the
  * character is not valid, the end of token is reached.
 */
-
+/*
 t_token	*tokenize_word(char *input, int *i)
 {
 	char	*data;
@@ -110,7 +110,7 @@ t_token	*tokenize_word(char *input, int *i)
 	*i += j;
 	return (token_generator(data, WORD_TOKEN));
 }
-
+*/
 /*
  * Return the char_type of char c, in order to caall the appropriate tokenizer
  * during the lexing phase.

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:17:20 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 10:54:01 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:09:01 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv, char **env)
 	else
 	{
 		variadic_error_printer(2, "Error : Invalid argument\n");
+		variadic_error_printer(2, "Usage : ./minishell\n");
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

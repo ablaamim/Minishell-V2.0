@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:51:12 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:14:28 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/23 14:07:29 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,11 @@ t_token	*tokenize_parenthesis(char *input, int *i)
 		variadic_error_printer(2, "Error : malloc() failed\n");
 		return (0x0);
 	}
-	ft_memcpy(data, &input[*i], 2);
+	if (input[*i] == '(')
+		ft_memcpy(data, "(\0", 2);
+	else
+		ft_memcpy(data, ")\0", 2);
+	printf("Occurence = %c\n", input[*i]);
 	++(*i);
 	return (token_generator(data, type));
 }

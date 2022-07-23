@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:19:17 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/20 11:25:37 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:10:00 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ char	*read_input(void)
 	char	*input;
 
 	input = readline("Minishell-V2.0$> ");
-	//printf("%s\n", input);
+	{
+		if (input == 0x0)
+		{
+			variadic_error_printer(2, "exit\0");
+			exit(EXIT_FAILURE);
+		}
+	}
 	add_history(input);
 	return (input);
 }
@@ -38,6 +44,7 @@ void	minishell(void)
 
 	while (1337)
 	{
+		signal(SIGQUIT, SIG_IGN);
 		input = read_input();
 		executor(input);
 		free(input);

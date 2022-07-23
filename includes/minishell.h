@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:55:07 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/23 14:23:24 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,5 +208,12 @@ t_token				*tokenize_lesser(char *input, int *i);
 */
 
 void				print_linked_list_tokens(t_token *token);
+
+/*
+ * Abstract Syntax tree constructor class :
+*/
+
+bool				abstract_syntax_tree_constructor(t_token **token_list, \
+		t_node **ast, bool	is_subshell);
 
 #endif

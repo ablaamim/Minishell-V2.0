@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/22 21:45:31 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/23 15:12:00 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 READLINE_FLAGS = -lreadline
 
-CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 SRC = ./sources/main.c \
 	  ./sources/debug.c \
@@ -34,6 +34,7 @@ SRC = ./sources/main.c \
 	  ./sources/define_char_type.c \
 	  ./sources/tokenize_word_and_separators.c \
 	  ./sources/tokenize_redirections.c \
+	  ./sources/abstract_syntax_tree_constructor.c \
 
 OBJ = $(SRC:.c=.o)
 

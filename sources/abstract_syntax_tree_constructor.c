@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   executor.c                                         :+:      :+:    :+:   */
+/*   abstract_syntax_tree_constructor.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 16:01:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/23 15:11:07 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/07/23 14:21:13 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/07/23 15:11:48 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-/*
- * initialize my abstract syntax tree, lex and parse content of input string,
- * using lexer and recursive descent parser.
-*/
-
-void	executor(char *input)
+bool	abstract_syntax_tree_constructor(t_token **token_list, t_node **ast, \
+		bool is_subshell)
 {
-	t_node	*ast;
+	bool	ret;
 
-	ast = 0x0;
-	if (input != 0x0)
+	ret = true;
+	while (*token_list != 0x0)
 	{
-		ast = ft_lexer_parser(input);
-		if (ast == 0x0)
-			variadic_error_printer(2, "AST IS EMPTY\n");
+		/*
+		 * TO DO :
+		 * ==> check if  logical accures in tokens seperators.
+		 * ==> parse logical operators.
+		 * ==> parse pipelines.
+		*/
 	}
+	return (true);
 }

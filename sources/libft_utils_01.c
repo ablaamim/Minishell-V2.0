@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 13:38:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:16:37 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/23 13:19:43 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ char	*ft_strndup(char *str, int n)
 
 void	*ft_memcpy(void *dest, void *src, size_t n)
 {
-	unsigned char	*tmp;
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
 
-	if (dest == 0x0 || src == 0x0)
-		return (0x0);
-	tmp = dest;
+	if ((dest == 0x0 && src == 0x0) || n == 0x0)
+		return (dest);
+	ptr_dest = (unsigned char *) dest;
+	ptr_src = (unsigned char *) src;
 	while (n--)
-		*tmp++ = *(unsigned char *) src++;
+		*ptr_dest++ = *ptr_src++;
 	return (dest);
 }
 

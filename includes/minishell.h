@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/23 14:23:24 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/25 07:51:17 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,8 @@ t_token				*tokenize_pipe(char *input, int *i);
 t_token				*tokenize_parenthesis(char *input, int *i);
 t_token				*tokenize_greater(char *input, int *i);
 t_token				*tokenize_lesser(char *input, int *i);
+bool				check_logical_operators(enum e_token_type type);
+void				devour_token(t_token **token_list);
 
 /*
  * Linked list debugger :
@@ -215,5 +217,8 @@ void				print_linked_list_tokens(t_token *token);
 
 bool				abstract_syntax_tree_constructor(t_token **token_list, \
 		t_node **ast, bool	is_subshell);
+bool				simple_command_parser(t_token **token_list, t_node **ast, \
+		bool is_subshell);
+bool				parse_pipe_line(t_token **token_list, t_node **ast, bool is_subshell);
 
 #endif

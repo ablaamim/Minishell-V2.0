@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:42:20 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/23 14:20:58 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/24 09:50:49 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_node	*ft_lexer_parser(char *input)
 	if (linked_list_constructor(input, &token_list) == true)
 	{
 		print_linked_list_tokens(token_list);
-		if (abstract_syntax_tree_constructor(&token_list, ast, false))
+		if (abstract_syntax_tree_constructor(&token_list, &ast, false))
 		{
 			if (token_list != 0x0)
 			{

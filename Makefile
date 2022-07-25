@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 10:07:24 by ablaamim          #+#    #+#              #
-#    Updated: 2022/07/23 15:12:00 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/07/24 10:45:44 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRC = ./sources/main.c \
 	  ./sources/tokenize_word_and_separators.c \
 	  ./sources/tokenize_redirections.c \
 	  ./sources/abstract_syntax_tree_constructor.c \
+	  ./sources/tokenizer_utils.c \
+	  ./sources/tokens_identifier.c \
 
 OBJ = $(SRC:.c=.o)
 

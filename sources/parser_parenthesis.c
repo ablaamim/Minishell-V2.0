@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 07:56:37 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/27 19:54:08 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:24:48 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,28 @@ bool	devour_token_and_ret_false(t_token **token_list)
 	return (false);
 }
 
+bool	check_errors_and_construct_subtree(t_token **token_list, \
+		t_token **sub_token_list, t_node **sub_tree)
+{
+	if ((*token_list != 0x0 && (is_leaf((*token_list)->type) == true || \
+					(*token_list)->type == OP_PARENTH_TOKEN)) || \
+				abstract_syntax_tree_constructor(sub_token_list, sub_tree, \
+					true) == false)
+	{
+		tokens_free(sub_token_list);
+		return (false);
+	}
+	return (true);
+}
+
 bool	parser_parenthesis(t_token **token_list, t_node **ast)
 {
 	t_token	*before_parenth_matching;
-	t_token	*sub_tree;
+	t_node	*sub_tree;
 	t_token	*sub_token_list;
 
-	if ((*token_list)->next != 0x0 && (*token_list)->type == CLOSE_PARENTH_TOKEN)
+	if ((*token_list)->next != 0x0 && (*token_list)->type == \
+			CLOSE_PARENTH_TOKEN)
 		return (devour_token_and_ret_false(token_list));
 	before_parenth_matching = start_before_parenth_matching(*token_list);
 	devour_token(token_list);
@@ -59,5 +74,14 @@ bool	parser_parenthesis(t_token **token_list, t_node **ast)
 	}
 	sub_token_list = *token_list;
 	*token_list = before_parenth_matching->next->next;
+	free(before_parenth_matching->next);
+	free(before_parenth_matching->next->data);
+	if (check_errors_and_construct_subtree(token_list, &sub_token_list, \
+				&sub_tree) == false)
+		return (false);
+	tokens_free(&sub_token_list);
+	*ast = sub_tree;
+	if (*token_list != 0x0 && (*token_list)->type == PIPE_TOKEN)
+		return (false);
 	return (true);
 }

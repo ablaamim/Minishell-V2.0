@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:08:24 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/27 19:49:48 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:52:28 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void				initialize_env_variables(void);
 */
 
 enum e_char_type
+    minishell.h
 {
 	ANY_CHAR,
 	NULL_CHAR,
@@ -206,6 +207,8 @@ bool				check_logical_operators(enum e_token_type type);
 void				devour_token(t_token **token_list);
 void				tokens_free(t_token **token_list);
 bool				print_err_and_return(t_token *token_list);
+bool				is_redirection(enum e_token_type type);
+bool				is_leaf(enum e_token_type type);
 
 /*
  * Linked list debugger :
@@ -221,6 +224,7 @@ bool				abstract_syntax_tree_constructor(t_token **token_list, \
 		t_node **ast, bool	is_subshell);
 bool				simple_command_parser(t_token **token_list, t_node **ast, \
 		bool is_subshell);
+bool				parse_logical_operators(t_token **token_list, t_node **ast, bool is_subshell);
 bool				parse_pipe_line(t_token **token_list, t_node **ast, bool is_subshell);
 bool				parser_parenthesis(t_token **token_list, t_node **ast);
 

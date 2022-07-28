@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 10:42:14 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/07/25 07:14:11 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:00:11 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ bool	 parse_pipe_line(t_token **token_list, t_node **ast, bool is_subshell)
 
 	if (simple_command_parser(token_list, &simple_command, is_subshell) == false)
 		return (false);
+	*ast = simple_command;
 	return (true);
 }
